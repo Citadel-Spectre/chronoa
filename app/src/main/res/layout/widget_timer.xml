@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Home-screen widget, one cell: the time at the top, and under it the countdown while a timer
+    or alarm is counting down. A widget can't set a text glow from code, so there is a clock,
+    countdown and label for each color theme (index into Theme.ALL, same colors) and only the
+    chosen theme's are shown. The panel behind is an image so its opacity can be set.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/widget_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/widget_bg" />
+
+    <!-- The Chronoa hourglass, when the clock is off and nothing is counting down. -->
+    <ImageView
+        android:id="@+id/widget_logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher_fg"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextClock
+            android:id="@+id/widget_clock_0"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFC8D2DE"
+            android:shadowRadius="10"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14sp" />
+
+        <Chronometer
+            android:id="@+id/widget_time_0"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFC8D2DE"
+            android:shadowRadius="6"
+            android:textColor="#FFFFFFFF"
+            android:visibility="gone"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/widget_label_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:shadowColor="#FFC8D2DE"
+            android:shadowRadius="4"
+            android:textColor="#FFFFFFFF"
+            android:textSize="8sp"
+            android:visibility="gone" />
+        <TextClock
+            android:id="@+id/widget_clock_1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF00E5FF"
+            android:shadowRadius="10"
+            android:textColor="#FF6BF0FF"
+            android:visibility="gone"
+            android:textSize="14sp" />
+
+        <Chronometer
+            android:id="@+id/widget_time_1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF00E5FF"
+            android:shadowRadius="6"
+            android:textColor="#FF6BF0FF"
+            android:visibility="gone"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/widget_label_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:shadowColor="#FF00E5FF"
+            android:shadowRadius="4"
+            android:textColor="#FF6BF0FF"
+            android:textSize="8sp"
+            android:visibility="gone" />
+        <TextClock
+            android:id="@+id/widget_clock_2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF0078FF"
+            android:shadowRadius="10"
+            android:textColor="#FF5AAAFF"
+            android:visibility="gone"
+            android:textSize="14sp" />
+
+        <Chronometer
+            android:id="@+id/widget_time_2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF0078FF"
+            android:shadowRadius="6"
+            android:textColor="#FF5AAAFF"
+            android:visibility="gone"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/widget_label_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:shadowColor="#FF0078FF"
+            android:shadowRadius="4"
+            android:textColor="#FF5AAAFF"
+            android:textSize="8sp"
+            android:visibility="gone" />
+        <TextClock
+            android:id="@+id/widget_clock_3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF9600FF"
+            android:shadowRadius="10"
+            android:textColor="#FFBE5FFF"
+            android:visibility="gone"
+            android:textSize="14sp" />
+
+        <Chronometer
+            android:id="@+id/widget_time_3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF9600FF"
+            android:shadowRadius="6"
+            android:textColor="#FFBE5FFF"
+            android:visibility="gone"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/widget_label_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:shadowColor="#FF9600FF"
+            android:shadowRadius="4"
+            android:textColor="#FFBE5FFF"
+            android:textSize="8sp"
+            android:visibility="gone" />
+        <TextClock
+            android:id="@+id/widget_clock_4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFCD0000"
+            android:shadowRadius="10"
+            android:textColor="#FFFF2D28"
+            android:visibility="gone"
+            android:textSize="14sp" />
+
+        <Chronometer
+            android:id="@+id/widget_time_4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFCD0000"
+            android:shadowRadius="6"
+            android:textColor="#FFFF2D28"
+            android:visibility="gone"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/widget_label_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:shadowColor="#FFCD0000"
+            android:shadowRadius="4"
+            android:textColor="#FFFF2D28"
+            android:textSize="8sp"
+            android:visibility="gone" />
+        <TextClock
+            android:id="@+id/widget_clock_5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFFF5000"
+            android:shadowRadius="10"
+            android:textColor="#FFFF7A28"
+            android:visibility="gone"
+            android:textSize="14sp" />
+
+        <Chronometer
+            android:id="@+id/widget_time_5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFFF5000"
+            android:shadowRadius="6"
+            android:textColor="#FFFF7A28"
+            android:visibility="gone"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/widget_label_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:shadowColor="#FFFF5000"
+            android:shadowRadius="4"
+            android:textColor="#FFFF7A28"
+            android:textSize="8sp"
+            android:visibility="gone" />
+        <TextClock
+            android:id="@+id/widget_clock_6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFFACD00"
+            android:shadowRadius="10"
+            android:textColor="#FFFFE228"
+            android:visibility="gone"
+            android:textSize="14sp" />
+
+        <Chronometer
+            android:id="@+id/widget_time_6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFFACD00"
+            android:shadowRadius="6"
+            android:textColor="#FFFFE228"
+            android:visibility="gone"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/widget_label_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:shadowColor="#FFFACD00"
+            android:shadowRadius="4"
+            android:textColor="#FFFFE228"
+            android:textSize="8sp"
+            android:visibility="gone" />
+        <TextClock
+            android:id="@+id/widget_clock_7"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF00C828"
+            android:shadowRadius="10"
+            android:textColor="#FF3CE864"
+            android:visibility="gone"
+            android:textSize="14sp" />
+
+        <Chronometer
+            android:id="@+id/widget_time_7"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF00C828"
+            android:shadowRadius="6"
+            android:textColor="#FF3CE864"
+            android:visibility="gone"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/widget_label_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:shadowColor="#FF00C828"
+            android:shadowRadius="4"
+            android:textColor="#FF3CE864"
+            android:textSize="8sp"
+            android:visibility="gone" />
+    </LinearLayout>
+</FrameLayout>

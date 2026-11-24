@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The wide (2x1) widget. Idle: one big clock. While a timer or alarm counts down: the time on
+    the left, a line in the theme's color, and the countdown on the right. As in widget_timer.xml
+    there is a copy of each part per color theme (index into Theme.ALL) since a widget can't set a
+    glow from code, and only the chosen theme's are shown.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/widget_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/widget_bg" />
+
+    <ImageView
+        android:id="@+id/widget_logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/ic_launcher_fg"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/widget_idle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="12dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="4dp">
+
+        <TextClock
+            android:id="@+id/widget_big_0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFC8D2DE"
+            android:shadowRadius="14"
+            android:textColor="#FFFFFFFF"
+            android:textSize="30sp" />
+        <TextClock
+            android:id="@+id/widget_big_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF00E5FF"
+            android:shadowRadius="14"
+            android:textColor="#FF6BF0FF"
+            android:visibility="gone"
+            android:textSize="30sp" />
+        <TextClock
+            android:id="@+id/widget_big_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF0078FF"
+            android:shadowRadius="14"
+            android:textColor="#FF5AAAFF"
+            android:visibility="gone"
+            android:textSize="30sp" />
+        <TextClock
+            android:id="@+id/widget_big_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF9600FF"
+            android:shadowRadius="14"
+            android:textColor="#FFBE5FFF"
+            android:visibility="gone"
+            android:textSize="30sp" />
+        <TextClock
+            android:id="@+id/widget_big_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFCD0000"
+            android:shadowRadius="14"
+            android:textColor="#FFFF2D28"
+            android:visibility="gone"
+            android:textSize="30sp" />
+        <TextClock
+            android:id="@+id/widget_big_5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFFF5000"
+            android:shadowRadius="14"
+            android:textColor="#FFFF7A28"
+            android:visibility="gone"
+            android:textSize="30sp" />
+        <TextClock
+            android:id="@+id/widget_big_6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFFACD00"
+            android:shadowRadius="14"
+            android:textColor="#FFFFE228"
+            android:visibility="gone"
+            android:textSize="30sp" />
+        <TextClock
+            android:id="@+id/widget_big_7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF00C828"
+            android:shadowRadius="14"
+            android:textColor="#FF3CE864"
+            android:visibility="gone"
+            android:textSize="30sp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/widget_row"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="6dp"
+        android:visibility="gone">
+
+        <TextClock
+            android:id="@+id/widget_wclock_0"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFC8D2DE"
+            android:shadowRadius="10"
+            android:textColor="#FFFFFFFF"
+            android:visibility="gone"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/widget_line_0"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:background="#FFC8D2DE"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/widget_wright_0"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Chronometer
+                android:id="@+id/widget_wtime_0"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:maxLines="1"
+                android:shadowColor="#FFC8D2DE"
+                android:shadowRadius="10"
+                android:textColor="#FFFFFFFF"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/widget_wlabel_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:shadowColor="#FFC8D2DE"
+                android:shadowRadius="4"
+                android:textColor="#FFFFFFFF"
+                android:textSize="10sp" />
+        </LinearLayout>
+        <TextClock
+            android:id="@+id/widget_wclock_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF00E5FF"
+            android:shadowRadius="10"
+            android:textColor="#FF6BF0FF"
+            android:visibility="gone"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/widget_line_1"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:background="#FF00E5FF"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/widget_wright_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Chronometer
+                android:id="@+id/widget_wtime_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:maxLines="1"
+                android:shadowColor="#FF00E5FF"
+                android:shadowRadius="10"
+                android:textColor="#FF6BF0FF"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/widget_wlabel_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:shadowColor="#FF00E5FF"
+                android:shadowRadius="4"
+                android:textColor="#FF6BF0FF"
+                android:textSize="10sp" />
+        </LinearLayout>
+        <TextClock
+            android:id="@+id/widget_wclock_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF0078FF"
+            android:shadowRadius="10"
+            android:textColor="#FF5AAAFF"
+            android:visibility="gone"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/widget_line_2"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:background="#FF0078FF"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/widget_wright_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Chronometer
+                android:id="@+id/widget_wtime_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:maxLines="1"
+                android:shadowColor="#FF0078FF"
+                android:shadowRadius="10"
+                android:textColor="#FF5AAAFF"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/widget_wlabel_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:shadowColor="#FF0078FF"
+                android:shadowRadius="4"
+                android:textColor="#FF5AAAFF"
+                android:textSize="10sp" />
+        </LinearLayout>
+        <TextClock
+            android:id="@+id/widget_wclock_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF9600FF"
+            android:shadowRadius="10"
+            android:textColor="#FFBE5FFF"
+            android:visibility="gone"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/widget_line_3"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:background="#FF9600FF"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/widget_wright_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Chronometer
+                android:id="@+id/widget_wtime_3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:maxLines="1"
+                android:shadowColor="#FF9600FF"
+                android:shadowRadius="10"
+                android:textColor="#FFBE5FFF"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/widget_wlabel_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:shadowColor="#FF9600FF"
+                android:shadowRadius="4"
+                android:textColor="#FFBE5FFF"
+                android:textSize="10sp" />
+        </LinearLayout>
+        <TextClock
+            android:id="@+id/widget_wclock_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFCD0000"
+            android:shadowRadius="10"
+            android:textColor="#FFFF2D28"
+            android:visibility="gone"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/widget_line_4"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:background="#FFCD0000"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/widget_wright_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Chronometer
+                android:id="@+id/widget_wtime_4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:maxLines="1"
+                android:shadowColor="#FFCD0000"
+                android:shadowRadius="10"
+                android:textColor="#FFFF2D28"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/widget_wlabel_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:shadowColor="#FFCD0000"
+                android:shadowRadius="4"
+                android:textColor="#FFFF2D28"
+                android:textSize="10sp" />
+        </LinearLayout>
+        <TextClock
+            android:id="@+id/widget_wclock_5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFFF5000"
+            android:shadowRadius="10"
+            android:textColor="#FFFF7A28"
+            android:visibility="gone"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/widget_line_5"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:background="#FFFF5000"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/widget_wright_5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Chronometer
+                android:id="@+id/widget_wtime_5"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:maxLines="1"
+                android:shadowColor="#FFFF5000"
+                android:shadowRadius="10"
+                android:textColor="#FFFF7A28"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/widget_wlabel_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:shadowColor="#FFFF5000"
+                android:shadowRadius="4"
+                android:textColor="#FFFF7A28"
+                android:textSize="10sp" />
+        </LinearLayout>
+        <TextClock
+            android:id="@+id/widget_wclock_6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FFFACD00"
+            android:shadowRadius="10"
+            android:textColor="#FFFFE228"
+            android:visibility="gone"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/widget_line_6"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:background="#FFFACD00"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/widget_wright_6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Chronometer
+                android:id="@+id/widget_wtime_6"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:maxLines="1"
+                android:shadowColor="#FFFACD00"
+                android:shadowRadius="10"
+                android:textColor="#FFFFE228"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/widget_wlabel_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:shadowColor="#FFFACD00"
+                android:shadowRadius="4"
+                android:textColor="#FFFFE228"
+                android:textSize="10sp" />
+        </LinearLayout>
+        <TextClock
+            android:id="@+id/widget_wclock_7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:format12Hour="HH:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:maxLines="1"
+            android:shadowColor="#FF00C828"
+            android:shadowRadius="10"
+            android:textColor="#FF3CE864"
+            android:visibility="gone"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/widget_line_7"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:background="#FF00C828"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/widget_wright_7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Chronometer
+                android:id="@+id/widget_wtime_7"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:maxLines="1"
+                android:shadowColor="#FF00C828"
+                android:shadowRadius="10"
+                android:textColor="#FF3CE864"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/widget_wlabel_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:shadowColor="#FF00C828"
+                android:shadowRadius="4"
+                android:textColor="#FF3CE864"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

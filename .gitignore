@@ -1,0 +1,25 @@
+.gradle/
+.idea/
+.kotlin/
+build/
+local.properties
+*.iml
+captures/
+
+# Installable builds: publish these as GitHub Releases instead of committing them
+*.apk
+*.aab
+
+# Signing keys and passwords: never commit
+*.jks
+*.keystore
+keystore.properties
+
+# OS junk
+.DS_Store
+
+# Only a few screenshots go in the repo; the rest are working shots kept locally
+screenshots/*
+!screenshots/chronoa_showcase.png
+!screenshots/wide_widget_countdown.png
+!screenshots/theme_rows4.png

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- Two tabs: Settings, and Theme to its right. -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp">
+
+        <TextView
+            android:id="@+id/tab_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="16dp"
+            android:text="@string/settings"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/tab_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="16dp"
+            android:text="@string/widget"
+            android:textSize="28sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Shows or hides the explanations under the settings. -->
+        <ImageButton
+            android:id="@+id/info"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="12dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/show_explanations"
+            android:src="@drawable/ic_info" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/theme_pane"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+        <!-- The widget's color, built in code. -->
+        <LinearLayout
+            android:id="@+id/widget_colours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="8dp" />
+
+        <Switch
+            android:id="@+id/widget_clock_show"
+            style="@style/SettingRow"
+            android:paddingBottom="2dp"
+            android:text="@string/widget_clock_show" />
+
+        <TextView
+            style="@style/SettingHint"
+            android:tag="hint"
+            android:visibility="gone"
+            android:text="@string/widget_clock_show_hint" />
+
+        <Switch
+            android:id="@+id/widget_countdown"
+            style="@style/SettingRow"
+            android:paddingBottom="2dp"
+            android:text="@string/widget_countdown" />
+
+        <TextView
+            style="@style/SettingHint"
+            android:tag="hint"
+            android:visibility="gone"
+            android:text="@string/widget_countdown_hint" />
+
+
+        <!-- Widget color, background opacity and preview, built in code. -->
+        <LinearLayout
+            android:id="@+id/theme_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <Button
+            android:id="@+id/add_widget"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/add_widget"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/add_wide_widget"
+            android:layout_width="260dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/add_wide_widget"
+            android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/settings_pane"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <!-- The app's color, built in code. -->
+        <LinearLayout
+            android:id="@+id/app_colour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:id="@+id/snooze_row"
+            style="@style/SettingRow"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/snooze_limit_row"
+            style="@style/SettingRow"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <Switch
+            android:id="@+id/wake_check"
+            style="@style/SettingRow"
+            android:paddingBottom="2dp"
+            android:text="@string/wake_check" />
+
+        <TextView
+            style="@style/SettingHint"
+            android:tag="hint"
+            android:visibility="gone"
+            android:text="@string/wake_check_hint" />
+
+        <TextView
+            android:id="@+id/max_ring_row"
+            style="@style/SettingRow"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/tone_row"
+            style="@style/SettingRow"
+            android:background="?android:attr/selectableItemBackground"
+            android:maxLines="1" />
+
+        <Switch
+            android:id="@+id/vibrate"
+            style="@style/SettingRow"
+            android:text="@string/vibrate" />
+
+        <Switch
+            android:id="@+id/gentle"
+            style="@style/SettingRow"
+            android:paddingBottom="2dp"
+            android:text="@string/gentle_wake" />
+
+        <TextView
+            style="@style/SettingHint"
+            android:tag="hint"
+            android:visibility="gone"
+            android:text="@string/gentle_wake_hint" />
+
+        <Switch
+            android:id="@+id/hold_dismiss"
+            style="@style/SettingRow"
+            android:paddingBottom="2dp"
+            android:text="@string/hold_dismiss" />
+
+        <TextView
+            style="@style/SettingHint"
+            android:tag="hint"
+            android:visibility="gone"
+            android:text="@string/hold_dismiss_hint" />
+
+        <TextView
+            style="@style/SettingRow"
+            android:paddingBottom="4dp"
+            android:text="@string/alarm_lead" />
+
+        <RadioGroup
+            android:id="@+id/alarm_lead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="8dp">
+
+            <RadioButton
+                android:id="@+id/lead_5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lead_5" />
+
+            <RadioButton
+                android:id="@+id/lead_10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/lead_10" />
+        </RadioGroup>
+
+        <Switch
+            android:id="@+id/status_countdown"
+            style="@style/SettingRow"
+            android:paddingBottom="2dp"
+            android:text="@string/status_countdown" />
+
+        <TextView
+            style="@style/SettingHint"
+            android:tag="hint"
+            android:visibility="gone"
+            android:text="@string/status_countdown_hint" />
+
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

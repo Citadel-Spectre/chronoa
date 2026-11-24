@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#FF111214</color>
+    <color name="accent">#FF2196F3</color>
+    <color name="text">#FFF2F2F2</color>
+    <color name="warn">#FFFFB74D</color>
+    <color name="dismiss">#FF00DD10</color>
+    <color name="snooze">#FFE01800</color>
+    <!-- Same glowing blue as the launcher icon. -->
+    <color name="glow">#FF2196F3</color>
+    <color name="glow_core">#FFC8EEFF</color>
+</resources>
