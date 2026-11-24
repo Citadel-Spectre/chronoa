@@ -20,6 +20,6 @@ keystore.properties
 
 # Only a few screenshots go in the repo; the rest are working shots kept locally
 screenshots/*
-!screenshots/chronoa_showcase.png
-!screenshots/wide_widget_countdown.png
-!screenshots/theme_rows4.png
+!screenshots/showcase.png
+!screenshots/themes.png
+!screenshots/widgets.png

@@ -4,7 +4,7 @@ An alarm clock, timer and stopwatch for Android with a glowing, retro-tech look.
 only the Android framework and the Kotlin standard library: no other libraries, no internet,
 no accounts, no tracking.
 
-![Chronoa](screenshots/chronoa_showcase.png)
+![Chronoa](screenshots/showcase.png)
 
 ## Features
 
@@ -20,6 +20,10 @@ no accounts, no tracking.
   countdown to the next timer or alarm.
 - **Themes:** eight glow colors for the app, and separately for the widgets, with adjustable
   widget background opacity.
+![Color themes](screenshots/themes.png)
+
+![Widgets](screenshots/widgets.png)
+
 - 24-hour time throughout. Runs on Android 5.0 (API 21) and newer; targets API 35.
 
 ## Install
